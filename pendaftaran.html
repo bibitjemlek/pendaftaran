@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1e293b">
+  <title>EKSATAPA - Pendaftaran Ekskul</title>
+  
+  <!-- CSS Portal -->
+  <link rel="stylesheet" href="style-pendaftaran.css">
+  
+  <!-- Font Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- HEADER DENGAN TOMBOL KEMBALI -->
+    <header class="app-header">
+      <a href="ekskul.html" class="back-btn" title="Kembali ke Web Utama">
+        <i class="ph ph-arrow-left"></i>
+      </a>
+      <div class="header-content">
+        <h1>EKSATAPA</h1>
+        <p>SMA Negeri 1 Tanjung Palas</p>
+      </div>
+    </header>
+
+    <main class="app-main" id="mainContainer">
+      
+      <!-- TAB BERANDA -->
+      <section id="tab-beranda" class="tab-content active">
+        <div class="hero-banner">
+          <img src="assets/banner-sekolah.jpeg" alt="Banner SMAN 1 Tanjung Palas" class="hero-img">
+          <div class="hero-text">
+            <h2>Selamat Datang!</h2>
+            <p>Temukan passion barumu. Eksplorasi berbagai kegiatan ekstrakurikuler dan kembangkan potensimu di sini.</p>
+            <button class="btn-primary" onclick="switchTab('tab-ekskul', 'nav-ekskul')">Lihat Ekskul</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB EKSKUL -->
+      <section id="tab-ekskul" class="tab-content">
+        <div class="section-header">
+          <h2>Pilihan Ekskul</h2>
+          <p>Pilih dan langsung daftar kegiatan favoritmu.</p>
+        </div>
+        <div class="ekskul-list" id="ekskulGrid">
+          <!-- Dirender otomatis oleh app.js -->
+        </div>
+      </section>
+
+      <!-- TAB PENDAFTARAN -->
+      <section id="tab-daftar" class="tab-content">
+        <div class="section-header">
+          <h2>Pendaftaran</h2>
+          <p>Lengkapi data diri di bawah ini.</p>
+        </div>
+        <form id="registerForm" class="modern-form">
+          <div class="input-group">
+            <i class="ph ph-user icon-input"></i>
+            <input type="text" id="nama" placeholder="Nama Lengkap" required>
+          </div>
+          <div class="input-group">
+            <i class="ph ph-student icon-input"></i>
+            <input type="text" id="kelas" placeholder="Kelas (Contoh: 10-A)" required>
+          </div>
+          <div class="input-group">
+            <i class="ph ph-medal icon-input"></i>
+            <select id="pilihanEkskul" required>
+              <option value="" disabled selected>Pilih Ekskul...</option>
+              <option value="PMR">PMR (Palang Merah Remaja)</option>
+              <option value="Pramuka">Praja Muda Karana</option>
+              <option value="Futsal">Futsal</option>
+              <option value="Seni Musik">Seni Musik</option>
+              <option value="Basket">Bola Basket</option>
+              <option value="Debat">Debat</option>
+              <option value="Marching Band">Marching Band</option>
+              <option value="Paskibra">Paskibra</option>
+            </select>
+          </div>
+          <div class="input-group align-top">
+            <i class="ph ph-chat-circle-text icon-input"></i>
+            <textarea id="alasan" rows="3" placeholder="Mengapa kamu ingin bergabung?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width" id="submitBtn">Kirim Pendaftaran</button>
+          <p id="formMessage" class="message"></p>
+        </form>
+      </section>
+
+      <!-- TAB GALERI -->
+      <section id="tab-galeri" class="tab-content">
+        <div class="section-header">
+          <h2>Galeri</h2>
+          <p>Momen seru kegiatan ekstrakurikuler.</p>
+        </div>
+        <div class="gallery-grid">
+          <img src="assets/paskibra.jpg" alt="Paskibra" class="gallery-item">
+          <img src="assets/marching-band.jpeg" alt="Marching Band" class="gallery-item">
+          <img src="assets/debat.jpg" alt="Debat" class="gallery-item">
+          <img src="assets/pramuka.jpg" alt="Pramuka" class="gallery-item">
+        </div>
+      </section>
+
+    </main>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" id="nav-beranda" onclick="switchTab('tab-beranda', 'nav-beranda')">
+        <i class="ph ph-house icon"></i>
+        <span class="label">Beranda</span>
+      </button>
+      <button class="nav-item" id="nav-ekskul" onclick="switchTab('tab-ekskul', 'nav-ekskul')">
+        <i class="ph ph-compass icon"></i>
+        <span class="label">Ekskul</span>
+      </button>
+      <button class="nav-item" id="nav-daftar" onclick="switchTab('tab-daftar', 'nav-daftar')">
+        <i class="ph ph-pencil-simple icon"></i>
+        <span class="label">Daftar</span>
+      </button>
+      <button class="nav-item" id="nav-galeri" onclick="switchTab('tab-galeri', 'nav-galeri')">
+        <i class="ph ph-image icon"></i>
+        <span class="label">Galeri</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
