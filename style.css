@@ -328,3 +328,54 @@ body.dark-mode .card-ekskul {
 body.dark-mode .card-ekskul h3 {
     color: #90caf9;
 }
+
+/* =========================================
+   PENGATURAN UNTUK HP DAN TABLET (RESPONSIVE)
+   Tambahkan kode ini di paling bawah style.css
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Memperbaiki Menu Navigasi yang Bertumpuk */
+    header {
+        flex-direction: column; /* Menyusun logo dan menu ke bawah */
+        text-align: center;
+    }
+    
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap; /* Membungkus menu agar tidak meluber ke samping */
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    /* 2. Memperbaiki Layout Kolom (Grid) */
+    /* Mengubah .grid-2 dan .grid-3 yang ada di HTML menjadi 1 kolom di HP */
+    .grid-2, .grid-3 {
+        display: grid;
+        grid-template-columns: 1fr !important; /* Memaksa jadi 1 kolom penuh */
+        gap: 15px;
+    }
+
+    /* 3. Menyesuaikan Container Utama */
+    .container {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box; /* Mencegah padding menambah lebar elemen */
+    }
+
+    /* 4. Menyesuaikan Ukuran Teks di Hero Section */
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+}
+
+/* Pastikan semua gambar tidak merusak ukuran layar */
+img {
+    max-width: 100%;
+    height: auto;
+}
